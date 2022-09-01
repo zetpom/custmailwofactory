@@ -36,22 +36,10 @@ public class CustomerMailApplication {
     }
     
     public static void main(String[] args) {
-        CustomerMailApplication app = new CustomerMailApplication();
         Scanner inp = new Scanner(System.in);
         System.out.print("Please choose customer type 1. Regular, 2. Mountain, 3. Delinquent ");
         int type = inp.nextInt();
-        switch(type) {
-            case 1:
-                app.getCustomerTypeFromUser("Regular");
-                break;
-            case 2:
-                app.getCustomerTypeFromUser("Mountain");
-                break;
-            case 3:
-                app.getCustomerTypeFromUser("Delinquent");
-                break;
-            
-        }
-        System.out.println(app.generateMail());        
+        Customer app = CustomerFactory.createCustomer(type);
+        System.out.println(app.createMail());        
     }
 }
